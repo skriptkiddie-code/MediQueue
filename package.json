@@ -1,0 +1,15 @@
+{
+  "name": "agentic-ai-triage-mockup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Judge demo with SQLite-backed triage workflow",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}

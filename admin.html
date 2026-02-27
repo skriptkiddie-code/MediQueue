@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Knowledge Base Admin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Admin Console</p>
+        <h1>Disease & Symptom Knowledge Base</h1>
+        <p class="subtitle">Add or edit diseases and symptom mappings used by triage logic.</p>
+        <p><a class="btn" href="/">Back to Prioritization Dashboard</a></p>
+      </div>
+    </header>
+
+    <main class="container layout">
+      <section class="panel">
+        <h2>Add / Edit Disease</h2>
+        <form id="diseaseForm" class="form-grid">
+          <input id="diseaseId" type="hidden" />
+          <label>
+            Disease Name
+            <input id="diseaseName" type="text" placeholder="e.g. Viral Bronchitis" required />
+          </label>
+          <label>
+            Specialty
+            <input id="specialty" type="text" placeholder="e.g. Pulmonology" required />
+          </label>
+          <label class="check-item">
+            <input id="redFlag" type="checkbox" />
+            Red Flag Condition
+          </label>
+          <label>
+            Symptoms (comma separated)
+            <input id="symptoms" type="text" placeholder="e.g. Cough, Fever, Fatigue" required />
+          </label>
+          <div class="actions">
+            <button type="submit" class="btn primary" id="saveBtn">Save Disease</button>
+            <button type="button" class="btn" id="clearBtn">Clear</button>
+          </div>
+        </form>
+        <p id="adminMessage" class="muted"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Current Disease Catalog</h2>
+        <div id="catalogContainer" class="catalog-list">Loading catalog...</div>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

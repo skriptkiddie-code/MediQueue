@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediQueue AI - Clinical Prioritization Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-row">
+        <div class="brand-mark"></div>
+        <div>
+          <h1>MediQueue AI</h1>
+          <p class="subtitle">Clinical Prioritization & Doctor Allocation</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="meta-pill">Live SQLite Data</span>
+        <a class="btn" href="/admin.html">Knowledge Base Admin</a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="panel intake-panel">
+        <h2>Patient Intake</h2>
+        <label>
+          Patient Name
+          <input id="patientName" type="text" placeholder="Name" />
+        </label>
+
+        <fieldset class="symptoms-group">
+          <legend>Symptoms</legend>
+          <div id="symptomContainer" class="symptom-list">Loading symptoms from database...</div>
+        </fieldset>
+
+        <div class="actions">
+          <button id="runBtn" class="btn primary">Run Prioritization</button>
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+
+        <div class="scenario-row">
+          <button class="btn scenario-btn" data-scenario="critical">Critical Case</button>
+          <button class="btn scenario-btn" data-scenario="infectious">Infectious Case</button>
+          <button class="btn scenario-btn" data-scenario="mild">Mild Case</button>
+        </div>
+      </section>
+
+      <section class="panel decision-panel">
+        <h2>Decision Summary</h2>
+        <p id="statusText" class="status-banner">Awaiting patient input.</p>
+
+        <div class="result-grid">
+          <article id="urgencyCard" class="result-card">
+            <h3>Urgency Assessment</h3>
+            <p id="priorityText">Not calculated yet.</p>
+          </article>
+
+          <article class="result-card">
+            <h3>Doctor Assignment</h3>
+            <p id="allocationText">No specialist assigned yet.</p>
+          </article>
+
+          <article class="result-card">
+            <h3>Patient Alert</h3>
+            <p id="alertText">No alert dispatched.</p>
+          </article>
+
+          <article class="result-card">
+            <h3>Likely Conditions (Reference)</h3>
+            <p id="diagnosisText">No condition suggestions yet.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel queue-panel">
+        <h2>Patient Queue (By Urgency)</h2>
+        <ul id="logList" class="logs-list">
+          <li>No patients in queue yet.</li>
+        </ul>
+      </section>
+    </main>
+
+   
+    <script src="app.js"></script>
+  </body>
+</html>
